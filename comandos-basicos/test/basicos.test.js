@@ -12,6 +12,8 @@ const selecionarDaTabela3 = require("../src/selecionarDaTabela3")
 const fazerPaginacao = require("../src/fazerPaginacao")
 const deletarDaTabela = require("../src/deletarDaTabela")
 const alterarElementoDaTabela = require("../src/alterarElementoDaTabela")
+const desafioCriarTabela = require("../src/desafioCriarTabela")
+const desafioAdicionarPessoas = require("../src/desafioAdicionarPessoas")
 
 async function contaElementos(nomeTabela) {
     const resposta = await knex.raw(`SELECT COUNT(*) as qtde FROM ${nomeTabela}`)
@@ -23,6 +25,7 @@ test("Deve criar tabela", async () => {
     const tabelaExiste = await knex.schema.hasTable("livros")
     expect(tabelaExiste).toBe(true)
 })
+
 
 test("Deve deletar tabela", async () => {
     await excluirTabela(knex)
@@ -53,6 +56,7 @@ test("Deve inserir outro elemento (#3) na tabela #3", async () => {
 
     expect(quantidadeDepois).toBe(quantidadeAntes+3)
 })
+
 
 test("Deve selecionar elementos da tabela", async () => {
     const dados = await selecionarDaTabela1(knex)
@@ -89,7 +93,20 @@ test("Deve alterar elemento de id 1 da tabela", async () => {
     await alterarElementoDaTabela(knex)
     const valorDepois = await knex("livros").select().first()
     expect(valorAntes.preco).not.toBe(valorDepois.preco)
+    
+})
 
+test("Deve criar tabela conforme descrição do desafio", async () => {
+    await desafioCriarTabela(knex)
+    const tabelaPessoas = await knex.schema.hasTable("pessoas")
+    expect(tabelaPessoas).toBe(true)
+})
+
+test("Deve inserir elementos da tabela pessoas conforme desafio", async () => {
+    const qtdAntes = await contaElementos("pessoas")
+    await desafioAdicionarPessoas(knex)
+    const qtdDepois = await contaElementos("pessoas")
+    expect(qtdDepois).toBe(qtdAntes+4)
 })
 
 afterAll( () => {
