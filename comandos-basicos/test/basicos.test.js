@@ -15,6 +15,7 @@ const alterarElementoDaTabela = require("../src/alterarElementoDaTabela")
 const desafioCriarTabela = require("../src/desafioCriarTabela")
 const desafioAdicionarPessoas = require("../src/desafioAdicionarPessoas")
 const deletarColunaDaTabela = require("../src/deletarColunaDaTabela")
+const alterarColunaDaTabela = require("../src/alterarColunaDaTabela")
 
 async function contaElementos(nomeTabela) {
     const resposta = await knex.raw(`SELECT COUNT(*) as qtde FROM ${nomeTabela}`)
@@ -117,6 +118,22 @@ test("Deve deletar coluna 'estaEmDia' da tabela pessoas", async () => {
     const colunaExisteDepois = await knex.schema.hasColumn("pessoas", "estaEmDia")
     expect(colunaExiste).toBe(true)
     expect(colunaExisteDepois).toBe(false)
+})
+
+test("Deve alterar a estrutura da tabela pessoas", async () => {
+    const colunaNomeExistia = await knex.schema.hasColumn("pessoas", "nome")
+    const colunaNomeCompletoExistia = await knex.schema.hasColumn("pessoas", "nomeCompleto")
+    const colunaAnoDeNascimentoExistia = await knex.schema.hasColumn("pessoas", "anoNascimento")
+    await alterarColunaDaTabela(knex)
+    const colunaNomeExiste = await knex.schema.hasColumn("pessoas", "nome")
+    const colunaNomeCompletoExiste = await knex.schema.hasColumn("pessoas", "nomeCompleto")
+    const colunaAnoDeNascimentoExiste = await knex.schema.hasColumn("pessoas", "anoNascimento")
+    expect(colunaNomeExistia).toBe(true)
+    expect(colunaNomeCompletoExistia).toBe(false)
+    expect(colunaAnoDeNascimentoExistia).toBe(false)
+    expect(colunaNomeExiste).toBe(false)
+    expect(colunaNomeCompletoExiste).toBe(true)
+    expect(colunaAnoDeNascimentoExiste).toBe(true)
 })
 
 afterAll( () => {
