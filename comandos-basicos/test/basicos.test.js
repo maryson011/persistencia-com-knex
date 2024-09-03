@@ -9,6 +9,7 @@ const inserirNaTabela3 = require("../src/inserirNaTabela3")
 const selecionarDaTabela1 = require("../src/selecionarDaTabela")
 const selecionarDaTabela2 = require("../src/selecionarDaTabela2")
 const selecionarDaTabela3 = require("../src/selecionarDaTabela3")
+const fazerPaginacao = require("../src/fazerPaginacao")
 
 async function contaElementos(nomeTabela) {
     const resposta = await knex.raw(`SELECT COUNT(*) as qtde FROM ${nomeTabela}`)
@@ -65,6 +66,12 @@ test("Deve selecionar elemento da tabela com where", async () => {
 
 test("Deve selecionar outros elemento da tabela com where", async () => {
     const dados = await selecionarDaTabela3(knex)
+    console.log(dados)
+    expect(dados).toBeInstanceOf(Array)
+})
+
+test("Deve trazer uma pagina de dados", async () => {
+    const dados = await fazerPaginacao(knex)
     console.log(dados)
     expect(dados).toBeInstanceOf(Array)
 })
