@@ -4,6 +4,7 @@ const knex = require('knex')(knexfile)
 const criarTabela = require("../src/criarTabela")
 const excluirTabela = require("../src/deletarTabela")
 const inserirNaTabela1 = require("../src/inserirNaTabela1")
+const inserirNaTabela2 = require("../src/inserirNaTabela2")
 
 test("Deve criar tabela", async () => {
     await criarTabela(knex)
@@ -19,6 +20,13 @@ test("Deve deletar tabela", async () => {
 
 test("Deve inserir na tabela", async () => {
     const dados = await inserirNaTabela1(knex)
+    console.log(dados)
+    expect(dados).toBeInstanceOf(Array)
+    expect(dados).toHaveLength(1)
+})
+
+test("Deve inserir outro elemento na tabela", async () => {
+    const dados = await inserirNaTabela2(knex)
     console.log(dados)
     expect(dados).toBeInstanceOf(Array)
     expect(dados).toHaveLength(1)
