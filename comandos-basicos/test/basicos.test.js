@@ -14,6 +14,7 @@ const deletarDaTabela = require("../src/deletarDaTabela")
 const alterarElementoDaTabela = require("../src/alterarElementoDaTabela")
 const desafioCriarTabela = require("../src/desafioCriarTabela")
 const desafioAdicionarPessoas = require("../src/desafioAdicionarPessoas")
+const deletarColunaDaTabela = require("../src/deletarColunaDaTabela")
 
 async function contaElementos(nomeTabela) {
     const resposta = await knex.raw(`SELECT COUNT(*) as qtde FROM ${nomeTabela}`)
@@ -107,6 +108,15 @@ test("Deve inserir elementos da tabela pessoas conforme desafio", async () => {
     await desafioAdicionarPessoas(knex)
     const qtdDepois = await contaElementos("pessoas")
     expect(qtdDepois).toBe(qtdAntes+4)
+})
+
+test("Deve deletar coluna 'estaEmDia' da tabela pessoas", async () => {
+    const colunaExiste = await knex.schema.hasColumn("pessoas", "estaEmDia")
+    const dados = await deletarColunaDaTabela(knex)
+    console.log(dados)
+    const colunaExisteDepois = await knex.schema.hasColumn("pessoas", "estaEmDia")
+    expect(colunaExiste).toBe(true)
+    expect(colunaExisteDepois).toBe(false)
 })
 
 afterAll( () => {
