@@ -5,6 +5,12 @@ const criarTabela = require("../src/criarTabela")
 const excluirTabela = require("../src/deletarTabela")
 const inserirNaTabela1 = require("../src/inserirNaTabela1")
 const inserirNaTabela2 = require("../src/inserirNaTabela2")
+const inserirNaTabela3 = require("../src/inserirNaTabela3")
+
+async function contaElementos(nomeTabela) {
+    const resposta = await knex.raw(`SELECT COUNT(*) as qtde FROM ${nomeTabela}`)
+    return resposta[0][0].qtde
+}
 
 test("Deve criar tabela", async () => {
     await criarTabela(knex)
@@ -30,6 +36,16 @@ test("Deve inserir outro elemento na tabela", async () => {
     console.log(dados)
     expect(dados).toBeInstanceOf(Array)
     expect(dados).toHaveLength(1)
+})
+
+test("Deve inserir outro elemento na tabela #3", async () => {
+    const quantidadeAntes = await contaElementos("livros")
+
+    await inserirNaTabela3(knex)
+
+    const quantidadeDepois = await contaElementos("livros")
+
+    expect(quantidadeDepois).toBe(quantidadeAntes+3)
 })
 
 afterAll( () => {
