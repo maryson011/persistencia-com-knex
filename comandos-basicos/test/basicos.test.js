@@ -11,6 +11,7 @@ const selecionarDaTabela2 = require("../src/selecionarDaTabela2")
 const selecionarDaTabela3 = require("../src/selecionarDaTabela3")
 const fazerPaginacao = require("../src/fazerPaginacao")
 const deletarDaTabela = require("../src/deletarDaTabela")
+const alterarElementoDaTabela = require("../src/alterarElementoDaTabela")
 
 async function contaElementos(nomeTabela) {
     const resposta = await knex.raw(`SELECT COUNT(*) as qtde FROM ${nomeTabela}`)
@@ -81,6 +82,14 @@ test("Deve deletar elementos da tabela", async () => {
     const dados = await deletarDaTabela(knex)
     console.log(dados)
     expect(dados).toBeGreaterThan(0)
+})
+
+test("Deve alterar elemento de id 1 da tabela", async () => {
+    const valorAntes = await knex("livros").select().first()
+    await alterarElementoDaTabela(knex)
+    const valorDepois = await knex("livros").select().first()
+    expect(valorAntes.preco).not.toBe(valorDepois.preco)
+
 })
 
 afterAll( () => {
