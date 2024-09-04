@@ -10,6 +10,7 @@ const leftJoin = require("../src/leftJoin");
 const rightJoin = require("../src/rightJoin");
 const crossJoin = require("../src/crossJoin");
 const groupBy = require("../src/groupBy");
+const having = require("../src/having");
 
 async function contaElementos(nomeTabela) {
   const dados = await knex(nomeTabela).count("*", { as: "qtde" });
@@ -90,6 +91,16 @@ test("Deve juntar as tabelas com cross join", async () => {
 
 test("Deve agrupar resultados", async () => {
   const dados = await groupBy(knex);
+  expect(dados).toBeInstanceOf(Array);
+  dados.forEach((dado) => {
+    expect(dado).toHaveProperty("id");
+    expect(dado).toHaveProperty("nome");
+    expect(dado).toHaveProperty("qtde_posts");
+  });
+});
+
+test("Deve filtrar resultados", async () => {
+  const dados = await having(knex);
   expect(dados).toBeInstanceOf(Array);
   dados.forEach((dado) => {
     expect(dado).toHaveProperty("id");
