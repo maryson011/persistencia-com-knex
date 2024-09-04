@@ -6,6 +6,7 @@ const knex = require('knex')(knexfile)
 const configurar = require("../src/configuracao")
 const join = require("../src/join")
 const innerJoin = require("../src/innerJoin")
+const leftJoin = require("../src/leftJoin")
 
 async function contaElementos(nomeTabela) {
     const dados = await knex(nomeTabela).count("*", {as:"qtde"})
@@ -41,11 +42,22 @@ test("Deve juntar as tabelas", async () => {
         expect(dado).toHaveProperty("titulo")
     })
 })
+
 test("Deve juntar as tabelas com inner join", async () => {
     const dados = await innerJoin(knex)
     expect(dados).toBeInstanceOf(Array)
     dados.forEach(dado=>{
         // expect(dado).toHaveProperty("id")
+        expect(dado).toHaveProperty("autor")
+        expect(dado).toHaveProperty("conteudo")
+        expect(dado).toHaveProperty("titulo")
+    })
+})
+
+test("Deve juntar as tabelas com left join", async () => {
+    const dados = await leftJoin(knex)
+    expect(dados).toBeInstanceOf(Array)
+    dados.forEach(dado=>{
         expect(dado).toHaveProperty("autor")
         expect(dado).toHaveProperty("conteudo")
         expect(dado).toHaveProperty("titulo")
