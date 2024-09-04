@@ -4,6 +4,7 @@ const knexfile = require('../knexfile')
 const knex = require('knex')(knexfile)
 
 const configurar = require("../src/configuracao")
+const join = require("../src/join")
 
 async function contaElementos(nomeTabela) {
     const dados = await knex(nomeTabela).count("*", {as:"qtde"})
@@ -27,6 +28,17 @@ test("deve fazer as configurações iniciais", async () => {
     expect(tabelaUsuariosExiste).toBe(true)
     expect(elementosTabelaUsuarios).toBe(3)
     expect(elementosTabelaPosts).toBe(3)
+})
+
+test("Deve juntar as tabelas", async () => {
+    const dados = await join(knex)
+    expect(dados).toBeInstanceOf(Array)
+    dados.forEach(dado=>{
+        expect(dado).toHaveProperty("id")
+        expect(dado).toHaveProperty("nome")
+        expect(dado).toHaveProperty("id_usuario")
+        expect(dado).toHaveProperty("titulo")
+    })
 })
 
 afterAll(() => {
