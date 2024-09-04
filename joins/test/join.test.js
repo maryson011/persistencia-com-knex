@@ -11,6 +11,7 @@ const rightJoin = require("../src/rightJoin");
 const crossJoin = require("../src/crossJoin");
 const groupBy = require("../src/groupBy");
 const having = require("../src/having");
+const orderBy = require("../src/orderBy");
 
 async function contaElementos(nomeTabela) {
   const dados = await knex(nomeTabela).count("*", { as: "qtde" });
@@ -107,6 +108,21 @@ test("Deve filtrar resultados", async () => {
     expect(dado).toHaveProperty("nome");
     expect(dado).toHaveProperty("qtde_posts");
   });
+});
+
+test("Deve ordenar resultados", async () => {
+  const dados = await orderBy(knex);
+
+  const ordenado = dados.every((dado, i) => {
+    if (i === 0) {
+        return true
+    }
+
+    return dado.id >= dados[i - 1].id
+  })
+
+  expect(dados).toBeInstanceOf(Array);
+  expect(ordenado).toBe(true);
 });
 
 afterAll(() => {
