@@ -1,0 +1,3 @@
+--> npm init -y
+--> npm i dotenv jest knex mysql2 moment
+--> knex init
