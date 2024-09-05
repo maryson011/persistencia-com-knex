@@ -1,0 +1,237 @@
+[
+    {
+        "id_livro": 13,
+        "matricula_estudante": 40657654,
+        "data_retirada": "2022-03-31",
+        "data_retorno": "2022-05-14"
+    },
+    {
+        "id_livro": 26,
+        "matricula_estudante": 40657654,
+        "data_retirada": "2022-04-11",
+        "data_retorno": "2022-05-14"
+    },
+    {
+        "id_livro": 8,
+        "matricula_estudante": 67774930,
+        "data_retirada": "2022-09-17",
+        "data_retorno": "2022-08-15"
+    },
+    {
+        "id_livro": 6,
+        "matricula_estudante": 88127558,
+        "data_retirada": "2022-06-16",
+        "data_retorno": "2022-06-25"
+    },
+    {
+        "id_livro": 23,
+        "matricula_estudante": 27146064,
+        "data_retirada": "2022-08-02",
+        "data_retorno": "2022-12-17"
+    },
+    {
+        "id_livro": 13,
+        "matricula_estudante": 52196934,
+        "data_retirada": "2022-07-27"
+    },
+    {
+        "id_livro": 22,
+        "matricula_estudante": 20353787,
+        "data_retirada": "2022-08-09",
+        "data_retorno": "2022-11-05"
+    },
+    {
+        "id_livro": 30,
+        "matricula_estudante": 94108470,
+        "data_retirada": "2022-06-11",
+        "data_retorno": "2022-10-16"
+    },
+    {
+        "id_livro": 21,
+        "matricula_estudante": 67774930,
+        "data_retirada": "2022-08-22",
+        "data_retorno": "2022-05-02"
+    },
+    {
+        "id_livro": 28,
+        "matricula_estudante": 32003008,
+        "data_retirada": "2022-07-16",
+        "data_retorno": "2022-09-02"
+    },
+    {
+        "id_livro": 30,
+        "matricula_estudante": 62058923,
+        "data_retirada": "2022-05-01",
+        "data_retorno": "2022-01-27"
+    },
+    {
+        "id_livro": 30,
+        "matricula_estudante": 20353787,
+        "data_retirada": "2022-12-10",
+        "data_retorno": "2022-03-20"
+    },
+    {
+        "id_livro": 24,
+        "matricula_estudante": 32730106,
+        "data_retirada": "2022-02-10",
+        "data_retorno": "2022-01-10"
+    },
+    {
+        "id_livro": 22,
+        "matricula_estudante": 32003008,
+        "data_retirada": "2022-06-11",
+        "data_retorno": "2022-05-02"
+    },
+    {
+        "id_livro": 20,
+        "matricula_estudante": 32730106,
+        "data_retirada": "2022-08-25",
+        "data_retorno": "2022-05-07"
+    },
+    {
+        "id_livro": 12,
+        "matricula_estudante": 52196934,
+        "data_retirada": "2022-06-10",
+        "data_retorno": "2022-12-20"
+    },
+    {
+        "id_livro": 12,
+        "matricula_estudante": 26125196,
+        "data_retirada": "2022-07-01",
+        "data_retorno": "2022-02-07"
+    },
+    {
+        "id_livro": 4,
+        "matricula_estudante": 32730106,
+        "data_retirada": "2022-04-07",
+        "data_retorno": "2022-05-10"
+    },
+    {
+        "id_livro": 19,
+        "matricula_estudante": 67774930,
+        "data_retirada": "2022-01-10"
+    },
+    {
+        "id_livro": 6,
+        "matricula_estudante": 32730106,
+        "data_retirada": "2022-01-11"
+    },
+    {
+        "id_livro": 8,
+        "matricula_estudante": 40657654,
+        "data_retirada": "2022-07-17",
+        "data_retorno": "2022-08-30"
+    },
+    {
+        "id_livro": 25,
+        "matricula_estudante": 26125196,
+        "data_retirada": "2022-06-02",
+        "data_retorno": "2022-03-28"
+    },
+    {
+        "id_livro": 23,
+        "matricula_estudante": 62058923,
+        "data_retirada": "2022-02-07",
+        "data_retorno": "2022-08-24"
+    },
+    {
+        "id_livro": 9,
+        "matricula_estudante": 43236103,
+        "data_retirada": "2022-11-26",
+        "data_retorno": "2022-08-29"
+    },
+    {
+        "id_livro": 30,
+        "matricula_estudante": 27146064,
+        "data_retirada": "2022-05-01"
+    },
+    {
+        "id_livro": 14,
+        "matricula_estudante": 88127558,
+        "data_retirada": "2022-04-24",
+        "data_retorno": "2022-09-26"
+    },
+    {
+        "id_livro": 12,
+        "matricula_estudante": 70678256,
+        "data_retirada": "2021-12-28",
+        "data_retorno": "2022-07-19"
+    },
+    {
+        "id_livro": 18,
+        "matricula_estudante": 20353787,
+        "data_retirada": "2022-07-12",
+        "data_retorno": "2022-09-30"
+    },
+    {
+        "id_livro": 25,
+        "matricula_estudante": 62058923,
+        "data_retirada": "2022-09-10",
+        "data_retorno": "2022-05-29"
+    },
+    {
+        "id_livro": 26,
+        "matricula_estudante": 70678256,
+        "data_retirada": "2022-07-03",
+        "data_retorno": "2022-03-23"
+    },
+    {
+        "id_livro": 9,
+        "matricula_estudante": 32003008,
+        "data_retirada": "2022-01-16",
+        "data_retorno": "2022-01-18"
+    },
+    {
+        "id_livro": 25,
+        "matricula_estudante": 94108470,
+        "data_retirada": "2022-05-10",
+        "data_retorno": "2022-10-12"
+    },
+    {
+        "id_livro": 18,
+        "matricula_estudante": 32003008,
+        "data_retirada": "2022-03-27"
+    },
+    {
+        "id_livro": 12,
+        "matricula_estudante": 40657654,
+        "data_retirada": "2022-12-06",
+        "data_retorno": "2022-04-08"
+    },
+    {
+        "id_livro": 27,
+        "matricula_estudante": 11588308,
+        "data_retirada": "2022-10-14",
+        "data_retorno": "2022-08-29"
+    },
+    {
+        "id_livro": 22,
+        "matricula_estudante": 43236103,
+        "data_retirada": "2022-09-08",
+        "data_retorno": "2022-08-15"
+    },
+    {
+        "id_livro": 13,
+        "matricula_estudante": 11588308,
+        "data_retirada": "2022-02-10",
+        "data_retorno": "2022-02-16"
+    },
+    {
+        "id_livro": 27,
+        "matricula_estudante": 52196934,
+        "data_retirada": "2022-06-23",
+        "data_retorno": "2022-03-07"
+    },
+    {
+        "id_livro": 27,
+        "matricula_estudante": 70678256,
+        "data_retirada": "2022-03-20",
+        "data_retorno": "2022-11-17"
+    },
+    {
+        "id_livro": 19,
+        "matricula_estudante": 32003008,
+        "data_retirada": "2022-01-08",
+        "data_retorno": "2022-04-08"
+    }
+]

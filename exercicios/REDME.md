@@ -15,3 +15,5 @@
 --> knex migrate:rollback
 --> knex migrate:make criar_tabela_livros
 --> knex migrate:latest
+--> knex seed:make seed_alugueis
+--> knex seed:run
