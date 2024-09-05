@@ -15,5 +15,5 @@ test("Deve criar o campo 'alugável' e setar pra falso pra todos os livros em pr
 });
 
 afterAll(() => {
-    bd.destroy();
+    knex.destroy();
 });
